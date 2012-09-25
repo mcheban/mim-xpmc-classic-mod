@@ -30,13 +30,11 @@ var timeouts = {processTimeout: 500,
 
 var ENTITIES = ['&quot;','&lt;','&gt;'];
 
-var RE_STRIP_URL = /<a.+?href=(["'])(.*?)\1.*?>.*?<\/a>/gi;
-var RE_STRIP_IMG = /<div[^<>]*?>\s*?<img.+?src="(.*?)".*?\/?>\s*?<\/div>/gmi;
-var RE_URL = /((((file|gopher|news|nntp|telnet|http|ftp|https|ftps|sftp):\/\/)|(www\.))+(([a-z0-9._-]+(\.[a-z]{2,6})?)|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]+)?(\/[a-zа-я0-9+()&%#!,_.\/?:;=@~\[\]-]*)?)/gmi;
+var RE_STRIP_URL = /<a[^>]+?href=(["'])(.*?)\1.*?>.*?<\/a>/gi;
+var RE_STRIP_IMG = /<div[^<>]*?>\s*?<img[^>]+?src="(.*?)".*?\/?>\s*?<\/div>/gmi;
+var RE_URL = /(^|[^"])((((file|gopher|news|nntp|telnet|http|ftp|https|ftps|sftp):\/\/)|(www\.))+(([a-z0-9._-]+(\.[a-z]{2,6})?)|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]+)?(\/[a-zа-я0-9+()&%#!,_.\/?:;=@~\[\]-]*)?)/gmi;
 var RE_IMAGE = /\b(http(s)?\:\/\/[a-z0-9-.]+(\.[a-z]{2,6})?(?:[a-zа-я0-9_+])+(\/[a-zа-я0-9+()&%#,_'.\/-~-]*)?\.(?:jpg|jpeg|gif|png|bmp)\b)/gi;
 var RE_YOUTUBE_VIDEO = /\b(https?:\/\/(?:www\.)?youtube\.com\/(?:watch)?\?v=([a-z0-9_-]+)(&[^&]+)*)\b/gi;
-var RE_YAPLAKAL_VIDEO = /\b(http:\/\/www.yapfiles.ru\/show\/\d+\/([a-z0-9]+)\.flv\.html)\b/gi;
-var RE_YAPLAKAL_VIDEO_PAGE = /\[flash=\d+,\d+,http:\/\/www\.yapfiles\.ru\/static\/play\.swf\?st=([a-z0-9]+)(&[^&]+)*\]/gi;
 var RE_YAPLAKAL_VIDEO = /\b(http:\/\/www.yapfiles.ru\/show\/\d+\/([a-z0-9]+)\.flv\.html)\b/gi;
 var RE_YAPLAKAL_VIDEO_PAGE = /\[flash=\d+,\d+,http:\/\/www\.yapfiles\.ru\/static\/play\.swf\?st=([a-z0-9]+)(&[^&]+)*\]/gi;
 var RE_GOOGLE_VIDEO = /\b(http:\/\/video\.google\.com\/googleplayer\.swf\?docId=-(\d+).*)\b/gi;
@@ -53,7 +51,7 @@ function stripURL(text) {
 
 function highlightURL(text) {
     reset(RE_URL);
-    var highlighted = text.replace(RE_URL, '<a href="$1" title="$1">$1</a>');
+    var highlighted = text.replace(RE_URL, '$1<a href="$2" title="$2">$2</a>');
     return highlighted;
 }
 
