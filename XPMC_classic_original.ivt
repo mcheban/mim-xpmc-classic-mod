@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--HTMLStart-->
+<html>
+<head>
+<title>
+XPMC_classic
+</title>
+<base href="%base%">
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="script.css" />
+</head>
+<body id="body">
+<script type="text/javascript" src="scripts.js"></script>
+
+<!--MessageIn-->
+     <div class="box in">
+      <div class="in-head">
+        <div class="name">%name%</div>
+        <div class="timestamp">
+          %date%
+        </div>
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+    </div>
+<!--hMessageIn-->
+    <div class="box in">
+      <div class="in-head">
+        <div class="name">%name%</div>
+        <div class="timestamp">
+          %date%
+        </div>
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+    </div>
+<!--MessageOut-->
+    <div class="box out">
+      <div class="out-head">
+        <div class="name">%name%</div>
+        <div class="timestamp">
+          %date%
+        </div>
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+    </div>
+<!--hMessageOut-->
+    <div class="box out">
+      <div class="out-head">
+        <div class="name">%name%</div>
+        <div class="timestamp">
+          %date%
+        </div>
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+    </div>
+<!--File-->
+    <div class="box">
+      <div class="file-head">
+        File-transfer from %name%
+        <div class="timestamp">
+          %date%
+        </div>
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+    </div>
+<!--hFile-->
+    <div class="box">
+      <div class="file-head">
+        File-transfer from %name%
+        <div class="timestamp">
+          %date%
+        </div>
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+    </div>
+<!--URL-->
+    <div class="box">
+      <div class="url-head">
+        Link from %name%
+        <div class="timestamp">
+          %date%
+        </div>
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+    </div>
+<!--hURL-->
+    <div class="box">
+      <div class="url-head">
+        Link from %name%
+        <div class="timestamp">
+          %date%
+        </div>
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+    </div>
+<!--Status-->
+    <div class="box2">
+      <div class="status-head">
+        <div class="name">%name% %text%</div> 
+        <div class="timestamp">
+          %time% %date%
+        </div>
+      </div>
+    </div>
+<!--hStatus-->
+    <div class="box2">
+      <div class="status-head">
+        <div class="name">%name% %text%</div>
+        <div class="timestamp">
+          %time% %date%
+        </div>
+      </div>
+    </div>
+<!--MessageInGroupStart-->
+    <div class="box in">
+      <div class="in-head">
+        <div class="name">%name%</div>
+        <div class="timestamp">
+          %date%
+        </div>
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+<!--MessageInGroupInner-->
+      <div class="in-ghead">
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+<!--MessageInGroupEnd-->
+    </div>
+<!--hMessageInGroupStart-->
+    <div class="box in">
+      <div class="in-head">
+        <div class="name">%name%</div>
+        <div class="timestamp">
+          %date%
+        </div>
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+<!--hMessageInGroupInner-->
+      <div class="in-ghead">
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+<!--hMessageInGroupEnd-->
+    </div>
+<!--MessageOutGroupStart-->
+    <div class="box out">
+      <div class="out-head">
+        <div class="name">%name%</div>
+        <div class="timestamp">
+          %date%
+        </div>
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+<!--MessageOutGroupInner-->
+      <div class="out-ghead">
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+<!--MessageOutGroupEnd-->
+    </div>
+<!--hMessageOutGroupStart-->
+    <div class="box out">
+      <div class="out-head">
+        <div class="name">%name%</div>
+        <div class="timestamp">
+          %date%
+        </div>
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+<!--hMessageOutGroupInner-->
+      <div class="out-ghead">
+      </div>
+      <div class="small-timestamp">
+        %time%
+      </div>
+      <div class="message">
+        %text%
+      </div>
+<!--hMessageOutGroupEnd-->
+    </div>
+  </body>
+</html>
+<!--HTMLEnd-->

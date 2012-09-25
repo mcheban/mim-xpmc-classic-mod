@@ -1,0 +1,61 @@
+.button {
+	border: 1px outset ButtonFace;
+	background-color: ButtonFace;
+	margin-right: 4px;
+	margin-bottom: 2px;
+	margin-top: 2px;
+	padding: 0;
+	cursor: pointer;
+	display: inline;
+}
+
+.btn_img {
+	width: 24px;
+	height: 24px;
+	background: url(img/image.gif) no-repeat;
+}
+
+.btn_video {
+	width: 24px;
+	height: 24px;
+	background: url(img/video.gif) no-repeat;
+}
+
+.btn_flash {
+	width: 27px;
+	height: 27px;
+	background: url(img/flash.gif) no-repeat;
+}
+
+.btn_remove {
+	width: 20px; 
+	height: 20px; 
+	background: url(img/cross.gif) no-repeat;
+}
+
+.btn_dec {
+	width: 20px;
+	height: 20px;
+}
+
+.btn_inc {
+	width: 20px;
+	height: 20px;
+}
+
+img.image {
+	border: 0;
+	margin: 2px;
+	cursor: pointer;
+	display: none;
+}
+
+span.hint {
+	font-family: Arial;
+	font-weight: bold;
+	margin: 2px;
+}
+
+span.linkContainer {
+	margin-left: 4px;
+}

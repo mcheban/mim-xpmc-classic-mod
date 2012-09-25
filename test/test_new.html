@@ -1,0 +1,187 @@
+<html>
+<head>
+<title>
+XPMC_classic
+</title>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<link rel="stylesheet" type="text/css" href="../script.css" />
+</head>
+<body id="body">
+	<script type="text/javascript" src="../scripts.js"></script>
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script type="text/javascript" src="../jQuery.aop.js"></script>
+  <script type="text/javascript">
+    function testSetUp() {
+      var messages = [];
+      $(".message").each(function() {
+        messages.push($(this).clone());
+      });
+      $(".message").remove();
+      $("#boxMsg").siblings().remove();
+      for(idx in messages) {
+        $("#boxMsg").append(messages[idx]);
+      }
+    }
+
+    jQuery.expr[":"].notProcessed = function(el) {
+      return !el.processed;
+    };
+    
+    function pollForProcess() {
+      var foundNew = false;
+      jQuery("div.message").filter(":notProcessed").each(function() {
+        foundNew = true;
+        var msg = processMsg(this.innerHTML);
+        this.innerHTML = msg;
+        this.processed = true;
+      });
+      if(foundNew) {
+        //processLinks();
+      }
+    }
+    
+    function domChanged(node) {
+      console.log("DOM changed: " + node);
+      var $candidate = jQuery(node);
+      if($candidate.is(".message:notProcessed")) {
+        console.log($candidate);
+        var box = $candidate.get(0);
+        box.innerHTML = processMsg(box.innerHTML);
+        box.processed = true;
+        processLinks();
+      }
+    }
+    
+    jQuery(function($) {
+/*    
+      jQuery.aop.after({target: HTMLDivElement, method: "appendChild"}, 
+        function(child) { 
+          domChanged(child);
+          return child;
+        }
+      );
+      jQuery.aop.after({target: HTMLDivElement, method: "insertBefore"}, 
+        function(newElement, referenceElement) { 
+          domChanged(newElement);
+          return newElement;
+        }
+      );
+*/
+      testSetUp();
+      setInterval(pollForProcess, 1);
+      //setTimeout(pollForProcess, 1);
+    });
+  </script>
+    <div id="boxMsg" class="box out">
+      <div class="out-head">
+        <div class="name">nickname</div>
+        <div class="timestamp">
+          Thursday, December 25, 2008
+        </div>
+      </div>
+      <div class="message">            <img class="img" src="img/smile.gif" alt=":)" /><span style="position:absolute; visibility:hidden;">:)</span>
+      </div>
+      <div class="message">            <a class="link" target="_self" href="http://lh4.ggpht.com/_lkAvnX0lCxs/SQSqmXzivtI/AAAAAAAABJM/95hbLc4Ze-c/%D1%80%D0%BE%D1%81%D1%8B7.jpg">http://lh4.ggpht.com/_lkAvnX0lCxs/SQSqmXzivtI/AAAAAAAABJM/95hbLc4Ze-c/%D1%80%D0%BE%D1%81%D1%8B7.jpg</a>
+      </div>
+      <div class="message">
+            <a class="link" target="_self" href="http://twitter.com/#!/_belarus/status/50914234846031873">http://twitter.com/#!/_belarus/status/50914234846031873</a>
+      </div>
+      <div class="message">
+            <img class="img" src="img/beee.gif" alt=":)" /><span style="position:absolute; visibility:hidden;">:)</span>
+      </div>
+      <div class="message">
+            <a class="link" target="_self" href="http://catalog.onliner.by/tv/~fp[type_tv][0]=lcd_tv~fp[diagonal_tv][to]=420~fp[resolution_tv]=1920x1080~fp[tv_led]=fullled~add=0~where=actual~currency=USD~city=minsk~sort_by=best~dir=asc/">http://catalog.onliner.by/tv/~fp[type_tv][0]=lcd_tv~fp[diagonal_tv][to]=420~fp[resolution_tv]=1920x1080~fp[tv_led]=fullled~add=0~where=actual~currency=USD~city=minsk~sort_by=best~dir=asc/</a>
+      </div>
+      <div class="message">
+            Bla Bla Bla Bla Bla Bla Bla <a class="link" target="_self" href="http://imgs.xkcd.com/comics/hamster_ball.png">http://imgs.xkcd.com/comics/hamster_ball.png</a> Bla Bla Bla Bla Bla <br><a class="link" target="_self" href="http://imgs.xkcd.com/comics/hamster_ball.png">http://imgs.xkcd.com/comics/hamster_ball.png</a> Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla
+      </div>
+      <div class="message">
+            image inserted with <b>[img]http&#58;//imgs.xkcd.com/comics/hamster_ball.png[/img]</b> <div style="width: 100%; border: 0; overflow: hidden;"><img class="img" style="width: expression((maxw = this.parentNode.offsetWidth ) > this.width ? 'auto' : maxw);" src="http://imgs.xkcd.com/comics/hamster_ball.png" /></div>
+      </div>
+    </div>
+    <div class="box out">
+      <div class="out-head">
+        <div class="name">nickname</div>
+        <div class="timestamp">
+          Friday, December 26, 2008
+        </div>
+      </div>
+      <div class="small-timestamp">
+        19:21:57
+      </div>
+      <div class="message">
+            <a class="link" target="_self" href="http://imgs.xkcd.com/comics/hamster_ball.png">http://imgs.xkcd.com/comics/hamster_ball.png</a>
+      </div>
+      <div class="out-ghead">
+      </div>
+      <div class="small-timestamp">
+        19:34:22
+      </div>
+      <div class="message">
+            <a class="link" target="_self" href="http://img.yandex.ru/i/invaders/game8_8fl.swf">http://img.yandex.ru/i/invaders/game8_8fl.swf</a>
+      </div>
+    </div>
+    <div class="box out">
+      <div class="out-head">
+        <div class="name">nickname</div>
+        <div class="timestamp">
+          Sunday, December 28, 2008
+        </div>
+      </div>
+      <div class="small-timestamp">
+        13:09:37
+      </div>
+      <div class="message">
+            <a class="link" target="_self" href="http://citroen.by/assets/modules/easy2/show.easy2gallery.php?id=29">http://citroen.by/assets/modules/easy2/show.easy2gallery.php?id=29</a>
+      </div>
+      <div class="message">
+            <a class="link" target="_self" href="http://www.youtube.com/watch?v=9Xmxyf8VTrs">http://www.youtube.com/watch?v=9Xmxyf8VTrs</a>
+      </div>
+      <div class="message">
+            <a class="link" target="_self" href="http://www.youtube.com/watch?v=FmwewsurSlE&feature=player_embedded#!">http://www.youtube.com/watch?v=FmwewsurSlE&feature=player_embedded#!</a>
+      </div>
+	 </div>
+	 <div class="box out">
+      <div class="out-head">
+        <div class="name">nickname</div>
+        <div class="timestamp">
+          Sunday, December 28, 2008
+        </div>
+      </div>
+      <div class="small-timestamp">
+        13:09:37
+      </div>
+      <div class="message">
+            <a class="link" target="_self" href="http://video.google.com/googleplayer.swf?docId=-4591569032721088896&hl=en">http://video.google.com/googleplayer.swf?docId=-4591569032721088896&hl=en</a>
+      </div>
+	 </div>
+	 <div class="box out">
+      <div class="out-head">
+        <div class="name">nickname</div>
+        <div class="timestamp">
+          Sunday, December 28, 2008
+        </div>
+      </div>
+      <div class="small-timestamp">
+        13:09:37
+      </div>
+      <div class="message">
+            <a class="link" target="_self" href="http://habrahabr.ru/blogs/i_am_insane/47946/">http://habrahabr.ru/blogs/i_am_insane/47946/</a>
+      </div>
+	 </div>
+	 <div class="box out">
+      <div class="out-head">
+        <div class="name">nickname</div>
+        <div class="timestamp">
+          Sunday, December 28, 2008
+        </div>
+      </div>
+      <div class="small-timestamp">
+        18:06:04
+      </div>
+      <div class="message">
+            &lt;a class=&quot;link&quot; target=&quot;_self&quot; href=&quot;<a class="link" target="_self" href="http://www.google.com/&quot;&gt;http://www.google.com/&lt;/a">http://www.google.com/&quot;&gt;http://www.google.com/&lt;/a</a>&gt;
+      </div>
+    </div>
+  </body>
+</html>
